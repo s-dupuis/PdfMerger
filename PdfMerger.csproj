@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pdf.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
       <HintPath>packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
@@ -158,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pdf.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\IronPdf.Native.Chrome.Windows.2023.5.13945\build\net\IronPdf.Native.Chrome.Windows.targets" Condition="Exists('packages\IronPdf.Native.Chrome.Windows.2023.5.13945\build\net\IronPdf.Native.Chrome.Windows.targets')" />

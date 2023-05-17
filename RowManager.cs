@@ -24,7 +24,7 @@ namespace PdfMerger
             foreach (String fileName in fileDialog.FileNames)
             {
                 var rowIndex = this.gridView.Rows.Add();
-                
+
                 this.gridView.Rows[rowIndex].Cells[0].Value = fileName;
 
                 this.handleButtonsEnabling();
@@ -33,8 +33,10 @@ namespace PdfMerger
             fileDialog.FileName = "";
         }
 
-        public void deleteRow()
+        public void deleteRow(int rowIndex)
         {
+            this.gridView.Rows.RemoveAt(rowIndex);
+
             this.handleButtonsEnabling();
         }
 
@@ -62,6 +64,11 @@ namespace PdfMerger
         {
             this.gridView.Rows.Clear();
             this.handleButtonsEnabling();
+        }
+
+        public void unselectRows ()
+        {
+            this.gridView.ClearSelection();
         }
     }
 }

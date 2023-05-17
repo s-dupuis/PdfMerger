@@ -35,6 +35,7 @@
             this.saveMergedFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.filesDataGridView = new System.Windows.Forms.DataGridView();
             this.Fichier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.filesGridViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déplacerToutEnBasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,28 +81,46 @@
             // 
             // filesDataGridView
             // 
+            this.filesDataGridView.AllowDrop = true;
             this.filesDataGridView.AllowUserToAddRows = false;
             this.filesDataGridView.AllowUserToDeleteRows = false;
+            this.filesDataGridView.AllowUserToResizeColumns = false;
             this.filesDataGridView.AllowUserToResizeRows = false;
             this.filesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.filesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Fichier});
-            this.filesDataGridView.ContextMenuStrip = this.filesGridViewContextMenuStrip;
+            this.Fichier,
+            this.Delete});
             this.filesDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.filesDataGridView.MultiSelect = false;
             this.filesDataGridView.Name = "filesDataGridView";
             this.filesDataGridView.ReadOnly = true;
+            this.filesDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.filesDataGridView.RowHeadersVisible = false;
             this.filesDataGridView.Size = new System.Drawing.Size(543, 289);
             this.filesDataGridView.TabIndex = 2;
             this.filesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.filesDataGridView_CellContentClick);
+            this.filesDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.filesDataGridView_CellMouseDown);
+            this.filesDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.filesDataGridView_CellPainting);
+            this.filesDataGridView.DragDrop += new System.Windows.Forms.DragEventHandler(this.filesDataGridView_DragDrop);
+            this.filesDataGridView.DragOver += new System.Windows.Forms.DragEventHandler(this.filesDataGridView_DragOver);
+            this.filesDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.filesDataGridView_MouseDown);
+            this.filesDataGridView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.filesDataGridView_MouseMove);
             // 
             // Fichier
             // 
             this.Fichier.HeaderText = "Fichier";
             this.Fichier.Name = "Fichier";
             this.Fichier.ReadOnly = true;
-            this.Fichier.Width = 500;
+            this.Fichier.Width = 520;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 20;
             // 
             // filesGridViewContextMenuStrip
             // 
@@ -116,6 +135,7 @@
             // 
             // supprimerToolStripMenuItem
             // 
+            this.supprimerToolStripMenuItem.Image = global::PdfMerger.Properties.Resources.delete;
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
             this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
@@ -184,7 +204,6 @@
         private System.Windows.Forms.OpenFileDialog selectFilesDialog;
         private System.Windows.Forms.SaveFileDialog saveMergedFileDialog;
         private System.Windows.Forms.DataGridView filesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fichier;
         private System.Windows.Forms.ContextMenuStrip filesGridViewContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem déplacerToutEnBasToolStripMenuItem;
@@ -192,6 +211,8 @@
         private System.Windows.Forms.ToolStripMenuItem déplacerVersLeBasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem déplacerVersLeHautToolStripMenuItem;
         private System.Windows.Forms.Button buttonDeleteFiles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fichier;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
 
