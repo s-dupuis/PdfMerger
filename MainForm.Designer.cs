@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Icon = Properties.Resources.pdf;
             this.components = new System.ComponentModel.Container();
             this.buttonAddFiles = new System.Windows.Forms.Button();
             this.buttonMergeFiles = new System.Windows.Forms.Button();
